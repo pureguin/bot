@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 var admin = require('firebase-admin');
 const {WebhookClient} = require('dialogflow-fulfillment');
@@ -47,8 +47,8 @@ server.post('/',function (request,response) {
 	
     const sum = number + number1;
     agent.add('ผลบวกคือ '+ sum);
-	const userId = request.body.originalDetectIntentRequest.payload.data.source.userId;
-	addUserMessage(userId, "สวัสดี Firebase");
+	//const userId = request.body.originalDetectIntentRequest.payload.data.source.userId;
+	//addUserMessage(userId, "สวัสดี Firebase");
 	
 	
   }
@@ -67,7 +67,7 @@ server.post('/',function (request,response) {
   
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
-  intentMap.set('addNumbers', add);
+  intentMap.set('add', add);
   
   agent.handleRequest(intentMap);
 });
